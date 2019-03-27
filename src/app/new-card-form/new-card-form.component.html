@@ -1,0 +1,54 @@
+
+
+  <h4 class="mb-3">Add</h4>
+  <form [formGroup]="cardForm" (ngSubmit)="addCard()" (mouseup)="isCardSaved=false">
+    <div class="mb-3">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name" placeholder="" (click)="isCardSaved=false"  />
+
+      <div class="alert alert-danger" role="alert" [hidden]="name.valid || isCardSaved">
+        <span class="sr-only">Error:</span>
+        Name is required
+      </div>
+
+
+    </div>
+
+
+    <div class="mb-3">
+      <label for="cardNumber">Card Number </label>
+      <input type="text" class="form-control" id="cardNumber"  formControlName="cardNumber" (keydown)="errorMessage=null" (click)="errorMessage=null"  (click)="isCardSaved=false"  placeholder="">
+      <div class="alert alert-danger" role="alert" [hidden]="cardNumber.valid || isCardSaved">
+        <span class="sr-only">Error:</span>
+        Card Number is required
+      </div>
+      <div *ngIf="errorMessage">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          {{errorMessage}}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="limit">Limit</label>
+      <input type="text" class="form-control" id="limit"  formControlName="cardLimit" (click)="isCardSaved=false" placeholder="" required="">
+      <div class="alert alert-danger" role="alert" [hidden]="cardLimit.valid || isCardSaved">
+        <span class="sr-only">Error:</span>
+        Card Limit must be greater than 0
+      </div>
+    </div>
+
+    <button class="btn btn-primary" [disabled]="!name.valid || !cardNumber.valid || ! cardLimit.valid" type="submit">  Add  </button>
+    <div>&nbsp;</div>
+    <div *ngIf="isCardSaved">
+      <div class="alert alert-success">Card Saved</div>
+    </div>
+    <div *ngIf="!isCardSaved">
+      <div>&nbsp;</div>
+    </div>
+  </form>
+
+  <div>&nbsp;</div>
+
+

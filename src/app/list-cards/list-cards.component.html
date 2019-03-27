@@ -1,0 +1,22 @@
+<h4 class="mb-3">Existing Cards</h4>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Card Number</th>
+      <th>Balance</th>
+      <th>Limit</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let cc of creditCards">
+      <td>{{cc.name }}</td>
+      <td>{{cc.cardNumber }}</td>
+      <td>{{cc.balance | currency:'GBP' :'symbol':'1.2-2' }}</td>
+      <td>{{ cc.cardLimit | currency:'GBP' :'symbol':'1.0-0'}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="col-md-8 order-md-1">
+  <h1>
+    Credit Card System
+  </h1>
+  <div>&nbsp;</div>
+  <app-new-card-form (cardData)="newCardHandler($event)"></app-new-card-form>
+
+  <app-list-cards [newCard]="newCard"></app-list-cards>
+</div>
+
+
